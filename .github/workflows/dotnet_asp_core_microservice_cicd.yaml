@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+jobs:
+  step1:
+    environment: ${{ inputs.environment }}
+    runs-on: books-runner-group-k8s-mode
+    name: "Step1"
+    steps:
+      - name: Start 1
+        run: |
+          echo "Start 1"
+  step2:
+    environment: stage
+    runs-on: books-runner-group-k8s-mode
+    name: "Step2"
+    needs:
+    - step1
+    
+    steps:
+      - name: Start 2
+        run: |
+          echo "Start 2"

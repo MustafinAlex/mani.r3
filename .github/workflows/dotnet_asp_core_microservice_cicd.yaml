@@ -9,7 +9,7 @@ on:
 jobs:
   step1:
     environment: ${{ inputs.environment }}
-    runs-on: books-runner-group-k8s-mode
+    runs-on: ubuntu-latest
     name: "Step1"
     steps:
       - name: Start 1
@@ -17,7 +17,7 @@ jobs:
           echo "Start 1"
   step2:
     environment: stage
-    runs-on: books-runner-group-k8s-mode
+    runs-on: ubuntu-latest
     name: "Step2"
     needs:
     - step1
